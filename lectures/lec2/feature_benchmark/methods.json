@@ -1,0 +1,355 @@
+[
+  {
+    "id": "summary",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "acf",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "n_lags": 10
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "pacf",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "n_lags": 10,
+      "method": "ywadjusted"
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "adf",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "maxlag": null,
+      "regression": "c",
+      "autolag": "AIC"
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "permutation_entropy",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "dimension": 5,
+      "tau": 1
+    },
+    "dependencies": [
+      "tsfresh"
+    ]
+  },
+  {
+    "id": "spectrum",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "sampling_rate": null,
+      "rolloff": 0.85
+    },
+    "dependencies": []
+  },
+  {
+    "id": "catch22",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": [
+      "numba"
+    ]
+  },
+  {
+    "id": "tsfresh",
+    "preset": "lec2-core",
+    "scope": "channel",
+    "parameters": {
+      "feature_set": "efficient"
+    },
+    "dependencies": [
+      "tsfresh"
+    ]
+  },
+  {
+    "id": "fit_linear",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "fit_power",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "maxfev": 10000
+    },
+    "dependencies": []
+  },
+  {
+    "id": "fit_exponential",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "maxfev": 10000
+    },
+    "dependencies": []
+  },
+  {
+    "id": "fit_polynomial",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "degree": 5
+    },
+    "dependencies": []
+  },
+  {
+    "id": "fit_sigmoid",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "maxfev": 10000
+    },
+    "dependencies": []
+  },
+  {
+    "id": "classical_additive",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "sp": null
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "classical_multiplicative",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "sp": null
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "stl",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "sp": null,
+      "robust": false
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "wavelet",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "wavelet": "db1",
+      "level": 2
+    },
+    "dependencies": [
+      "PyWavelets"
+    ]
+  },
+  {
+    "id": "pca",
+    "preset": "lec2-extended",
+    "scope": "sample",
+    "parameters": {
+      "n_components": 2
+    },
+    "dependencies": []
+  },
+  {
+    "id": "ica",
+    "preset": "lec2-extended",
+    "scope": "sample",
+    "parameters": {
+      "n_components": 2,
+      "max_iter": 2000,
+      "tol": 0.0001
+    },
+    "dependencies": []
+  },
+  {
+    "id": "dfm",
+    "preset": "lec2-extended",
+    "scope": "sample",
+    "parameters": {
+      "k_factors": 2,
+      "factor_order": 1,
+      "maxiter": 100
+    },
+    "dependencies": [
+      "statsmodels"
+    ]
+  },
+  {
+    "id": "minmax",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "zscore",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "l2",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "ma_backward",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 5
+    },
+    "dependencies": []
+  },
+  {
+    "id": "ma_forward",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 5
+    },
+    "dependencies": []
+  },
+  {
+    "id": "ma_centered",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 5
+    },
+    "dependencies": []
+  },
+  {
+    "id": "interpolate",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "ffill",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "bfill",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "mean_fill",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 2
+    },
+    "dependencies": []
+  },
+  {
+    "id": "drop_missing",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "difference1",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "difference2",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {},
+    "dependencies": []
+  },
+  {
+    "id": "patch",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "length": 16,
+      "stride": 16
+    },
+    "dependencies": []
+  },
+  {
+    "id": "padding",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "length": 256,
+      "fill_value": 0.0
+    },
+    "dependencies": []
+  },
+  {
+    "id": "pool_mean",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 4
+    },
+    "dependencies": []
+  },
+  {
+    "id": "pool_max",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "window": 4
+    },
+    "dependencies": []
+  },
+  {
+    "id": "resample",
+    "preset": "lec2-extended",
+    "scope": "channel",
+    "parameters": {
+      "rule": "2D"
+    },
+    "dependencies": []
+  }
+]

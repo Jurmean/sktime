@@ -1,0 +1,13 @@
+{
+  "preset": "lec2-core",
+  "seed": 42,
+  "preprocessing": [],
+  "parameters": {
+    "acf": {"n_lags": 10},
+    "pacf": {"n_lags": 10, "method": "ywadjusted"},
+    "adf": {"maxlag": null, "regression": "c", "autolag": "AIC"},
+    "permutation_entropy": {"dimension": 5, "tau": 1},
+    "spectrum": {"sampling_rate": null, "rolloff": 0.85},
+    "tsfresh": {"feature_set": "efficient"}
+  }
+}

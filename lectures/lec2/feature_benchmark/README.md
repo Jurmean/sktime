@@ -2,6 +2,8 @@
 
 本工具将课件中的已有方法统一为 Python 和命令行入口。输出特征表、频谱/分解/降维数组、数值诊断及可复现的运行记录。它不训练分类器，不产生准确率排行榜；拟合与重构误差仅描述当前样本。
 
+六个数据集的实测结果、失败原因和验证记录见 [首版运行报告](https://github.com/Jurmean/sktime/blob/codex/lec2-features-benchmark/lectures/lec2/feature_benchmark/BENCHMARK.md)。
+
 ## 安装与一键运行
 
 在仓库根目录，使用 Python 3.11 的独立环境：

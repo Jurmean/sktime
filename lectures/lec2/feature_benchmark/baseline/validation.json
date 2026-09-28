@@ -1,0 +1,46 @@
+{
+  "pytest": {
+    "command": "python -m pytest -o addopts='' sktime/benchmarking/feature_extraction/tests -q",
+    "passed": 31,
+    "failed": 0
+  },
+  "ruff": "passed",
+  "git_diff_check": "passed",
+  "all_228_combinations_reproducible": true,
+  "core_cli_matches_benchmark": {
+    "GunPoint": [
+      200,
+      835
+    ],
+    "ArrowHead": [
+      211,
+      835
+    ],
+    "ItalyPowerDemand": [
+      1096,
+      835
+    ],
+    "BasicMotions": [
+      80,
+      5010
+    ],
+    "Airline": [
+      1,
+      840
+    ],
+    "DailyDelhiClimate": [
+      1,
+      3360
+    ]
+  },
+  "artifact_arrays_verified": 235591,
+  "optional_comprehensive_airline": {
+    "shape": [
+      1,
+      788
+    ],
+    "status_counts": {
+      "partial": 1
+    }
+  }
+}

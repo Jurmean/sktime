@@ -1,0 +1,39 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "sktime.benchmarking.feature_extraction",
+    "benchmark",
+    "--config",
+    "lectures/lec2/feature_benchmark/extended.json",
+    "--out",
+    "outputs/lec2-extended"
+  ],
+  "config": {
+    "preset": "lec2-extended",
+    "seed": 42,
+    "preprocessing": [],
+    "parameters": {
+      "fit_polynomial": {
+        "degree": 5
+      },
+      "wavelet": {
+        "wavelet": "db1",
+        "level": 2
+      },
+      "pca": {
+        "n_components": 2
+      },
+      "ica": {
+        "n_components": 2,
+        "max_iter": 2000,
+        "tol": 0.0001
+      },
+      "dfm": {
+        "k_factors": 2,
+        "factor_order": 1,
+        "maxiter": 100
+      }
+    }
+  }
+}

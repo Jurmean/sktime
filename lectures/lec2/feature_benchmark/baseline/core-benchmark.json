@@ -1,0 +1,4579 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "created_utc": "2026-09-28T08:46:23.475530+00:00",
+    "git_commit": "d7e309017fe6e5e86ade2107613582104b018333",
+    "git_worktree_status": "",
+    "source_sha256": {
+      "__init__.py": "603d47b31c7cfa8481b2cfe8b813ed3bcba0717be788fbd870a80baa8e11f1e3",
+      "__main__.py": "31ce1a402011afb82b6213cdda4dd17bb52554ace836befe179e18d50c83310e",
+      "_data.py": "bee861be4517a3fef1c7563dfb3887d828a93d726f503e92e724a94d63b2918c",
+      "_engine.py": "d1a0c5def8fd36e237afaf41ee4db6c55fe2d88b91824ca65e2545fcfc5a97c6",
+      "_methods.py": "80aceba6dde4ad4f9d3ec338f58b83f3b023b71a1443ef184737e69ef4c918bd"
+    },
+    "python": "3.11.15",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "processor": "arm",
+    "logical_cpus": 10,
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "versions": {
+      "sktime": "0.40.1",
+      "numpy": "2.3.5",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.7.2",
+      "scikit-base": "0.13.2",
+      "statsmodels": "0.14.6",
+      "tsfresh": "0.21.2",
+      "numba": "0.62.1",
+      "PyWavelets": "1.9.0",
+      "threadpoolctl": "3.7.0"
+    }
+  },
+  "protocol": {
+    "datasets": [
+      "GunPoint",
+      "ArrowHead",
+      "ItalyPowerDemand",
+      "BasicMotions",
+      "Airline",
+      "DailyDelhiClimate"
+    ],
+    "preset": "lec2-core",
+    "methods": [
+      "summary",
+      "acf",
+      "pacf",
+      "adf",
+      "permutation_entropy",
+      "spectrum",
+      "catch22",
+      "tsfresh"
+    ],
+    "parameters": {
+      "summary": {},
+      "acf": {
+        "n_lags": 10
+      },
+      "pacf": {
+        "n_lags": 10,
+        "method": "ywadjusted"
+      },
+      "adf": {
+        "maxlag": null,
+        "regression": "c",
+        "autolag": "AIC"
+      },
+      "permutation_entropy": {
+        "dimension": 5,
+        "tau": 1
+      },
+      "spectrum": {
+        "sampling_rate": null,
+        "rolloff": 0.85
+      },
+      "catch22": {},
+      "tsfresh": {
+        "feature_set": "efficient"
+      }
+    },
+    "preprocessing": [],
+    "seed": 42,
+    "warmups": 1,
+    "repeats": 3,
+    "threads": 1,
+    "window_length": null,
+    "stride": null,
+    "timing_scope": "whole extraction, excluding load/write/provenance/comparison",
+    "comparison_tolerance": {
+      "rtol": 1e-07,
+      "atol": 1e-09
+    }
+  },
+  "datasets": {
+    "GunPoint": {
+      "load_seconds": 0.042144374921917915,
+      "input_sha256": "c4cfe5890105162f1d91844d0c211d2d6460088b9ed2ae56bd1fc561c2503353",
+      "samples": 200,
+      "channels": [
+        1
+      ],
+      "lengths": [
+        150
+      ]
+    },
+    "ArrowHead": {
+      "load_seconds": 0.023803125135600567,
+      "input_sha256": "580b751900bd23bd24a986dd0d34a06fb94c4b4eedb534f96096b0d0f720135d",
+      "samples": 211,
+      "channels": [
+        1
+      ],
+      "lengths": [
+        251
+      ]
+    },
+    "ItalyPowerDemand": {
+      "load_seconds": 0.08566620759665966,
+      "input_sha256": "3ff0837121cb893cae339a17c6b50f1b235d52ddc4ec283fd13c2d88e40614e4",
+      "samples": 1096,
+      "channels": [
+        1
+      ],
+      "lengths": [
+        24
+      ]
+    },
+    "BasicMotions": {
+      "load_seconds": 0.021814582869410515,
+      "input_sha256": "0907f5deedddadbe1357221e731b8a21fdf612fb4748fa74093d19a0eed77e47",
+      "samples": 80,
+      "channels": [
+        6
+      ],
+      "lengths": [
+        100
+      ]
+    },
+    "Airline": {
+      "load_seconds": 0.004426791798323393,
+      "input_sha256": "0e59ef13275279e5264b556a1dff4a5a884a85fbe4f7c4e57ead9093d88ef0e4",
+      "samples": 1,
+      "channels": [
+        1
+      ],
+      "lengths": [
+        144
+      ]
+    },
+    "DailyDelhiClimate": {
+      "load_seconds": 0.005903041921555996,
+      "input_sha256": "f7b848033dffb46d277521f90e3c236e9b7dd36e4cec604693681b94be155f6a",
+      "samples": 1,
+      "channels": [
+        4
+      ],
+      "lengths": [
+        114
+      ]
+    }
+  },
+  "summary": [
+    {
+      "dataset": "GunPoint",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 0.24751508282497525,
+      "repeat_seconds": [
+        0.24751508282497525,
+        0.262402500025928,
+        0.24036775017157197
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 7,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.024115916807204485,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 0.19515925040468574,
+      "repeat_seconds": [
+        0.19460083357989788,
+        0.19515925040468574,
+        0.1962004592642188
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.024792499840259552,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 0.22849037498235703,
+      "repeat_seconds": [
+        0.22761529125273228,
+        0.22906525013968349,
+        0.22849037498235703
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.02408062480390072,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 0.31143399979919195,
+      "repeat_seconds": [
+        0.31143399979919195,
+        0.3688537501730025,
+        0.3095668749883771
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 3,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.03959925007075071,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.04971908312290907,
+      "repeat_seconds": [
+        0.059712333139032125,
+        0.04971908312290907,
+        0.049467625096440315
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 1,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.024596582632511854,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.04947612527757883,
+      "repeat_seconds": [
+        0.04947612527757883,
+        0.06888166721910238,
+        0.04708262486383319
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 5,
+      "status_counts": {
+        "ok": 200
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.05450550001114607,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 0.2306798747740686,
+      "repeat_seconds": [
+        0.2503264592960477,
+        0.22736891685053706,
+        0.2306798747740686
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 22,
+      "status_counts": {
+        "partial": 145,
+        "ok": 55
+      },
+      "feature_valid_fraction": 0.9670454545454545,
+      "array_valid_fraction": null,
+      "write_seconds": 0.025997458025813103,
+      "reasons": {
+        "nonfinite output preserved": 145
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 5.343215249944478,
+      "repeat_seconds": [
+        5.323596958070993,
+        5.343215249944478,
+        5.489872333128005
+      ],
+      "repeat_consistent": true,
+      "samples": 200,
+      "scalar_columns": 777,
+      "status_counts": {
+        "partial": 200
+      },
+      "feature_valid_fraction": 0.8751608751608752,
+      "array_valid_fraction": null,
+      "write_seconds": 0.08607433317229152,
+      "reasons": {
+        "nonfinite output preserved": 200
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 0.2689763749949634,
+      "repeat_seconds": [
+        0.2689763749949634,
+        0.2685685409232974,
+        0.2918799160979688
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 7,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.030169458128511906,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 0.21194345923140645,
+      "repeat_seconds": [
+        0.2113567921333015,
+        0.21243774984031916,
+        0.21194345923140645
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.031440041959285736,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 0.24845154117792845,
+      "repeat_seconds": [
+        0.24568125000223517,
+        0.24845154117792845,
+        0.24945458304136992
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.03142766701057553,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 0.43656512489542365,
+      "repeat_seconds": [
+        0.4342696671374142,
+        0.43656512489542365,
+        0.43994320929050446
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 3,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.029976459220051765,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.06879412522539496,
+      "repeat_seconds": [
+        0.08908558310940862,
+        0.0630086250603199,
+        0.06879412522539496
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 1,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.03001458290964365,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.0576801672577858,
+      "repeat_seconds": [
+        0.05718679120764136,
+        0.06150587508454919,
+        0.0576801672577858
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 5,
+      "status_counts": {
+        "ok": 211
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.07042970834299922,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 0.26804920798167586,
+      "repeat_seconds": [
+        0.2683789166621864,
+        0.2661980837583542,
+        0.26804920798167586
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 22,
+      "status_counts": {
+        "ok": 129,
+        "partial": 82
+      },
+      "feature_valid_fraction": 0.982335200344679,
+      "array_valid_fraction": null,
+      "write_seconds": 0.03304041735827923,
+      "reasons": {
+        "nonfinite output preserved": 82
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 6.020361667033285,
+      "repeat_seconds": [
+        6.020361667033285,
+        6.0020030830055475,
+        6.062220375053585
+      ],
+      "repeat_consistent": true,
+      "samples": 211,
+      "scalar_columns": 777,
+      "status_counts": {
+        "partial": 211
+      },
+      "feature_valid_fraction": 0.9987129987129987,
+      "array_valid_fraction": null,
+      "write_seconds": 0.10201954189687967,
+      "reasons": {
+        "nonfinite output preserved": 211
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 1.325083791743964,
+      "repeat_seconds": [
+        1.325083791743964,
+        1.3611256247386336,
+        1.319946083240211
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 7,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.06997020822018385,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 1.0215199999511242,
+      "repeat_seconds": [
+        1.0215199999511242,
+        1.0427995421923697,
+        1.0128670828416944
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0737924580462277,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 1.2016641669906676,
+      "repeat_seconds": [
+        1.2010429999791086,
+        1.2406384581699967,
+        1.2016641669906676
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.07478004228323698,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 1.069939916022122,
+      "repeat_seconds": [
+        1.1326054157689214,
+        1.0489106248132885,
+        1.069939916022122
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 3,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.07277966709807515,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.20690191676840186,
+      "repeat_seconds": [
+        0.20281429216265678,
+        0.20690191676840186,
+        0.23297470901161432
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 1,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.07291841693222523,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.24942166591063142,
+      "repeat_seconds": [
+        0.24942166591063142,
+        0.22163895890116692,
+        0.25724587496370077
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 5,
+      "status_counts": {
+        "ok": 1096
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.18667295901104808,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 1.2872342499904335,
+      "repeat_seconds": [
+        1.2157250419259071,
+        1.3153683342970908,
+        1.2872342499904335
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 22,
+      "status_counts": {
+        "partial": 1096
+      },
+      "feature_valid_fraction": 0.8718895155938952,
+      "array_valid_fraction": null,
+      "write_seconds": 0.08692466607317328,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 25.215190290939063,
+      "repeat_seconds": [
+        25.007304084021598,
+        25.215190290939063,
+        26.504643958061934
+      ],
+      "repeat_consistent": true,
+      "samples": 1096,
+      "scalar_columns": 777,
+      "status_counts": {
+        "partial": 1096
+      },
+      "feature_valid_fraction": 0.5251928153388007,
+      "array_valid_fraction": null,
+      "write_seconds": 0.3047168329358101,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 0.5522701246663928,
+      "repeat_seconds": [
+        0.5478886249475181,
+        0.5522701246663928,
+        0.5566999586299062
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 42,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.01410841615870595,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 0.44684066623449326,
+      "repeat_seconds": [
+        0.44684066623449326,
+        0.44662920804694295,
+        0.5153262908570468
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 60,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0154515840113163,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 0.516243833117187,
+      "repeat_seconds": [
+        0.4944572080858052,
+        0.598520833067596,
+        0.516243833117187
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 60,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.014724959153681993,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 0.5945801669731736,
+      "repeat_seconds": [
+        0.5945801669731736,
+        0.589999333024025,
+        0.6121071251109242
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 18,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.014091125223785639,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.07803924987092614,
+      "repeat_seconds": [
+        0.07803924987092614,
+        0.08400495769456029,
+        0.07321258401498199
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 6,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.013938500080257654,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.06824458343908191,
+      "repeat_seconds": [
+        0.06824458343908191,
+        0.06795179191976786,
+        0.09576733317226171
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 30,
+      "status_counts": {
+        "ok": 480
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.08582616690546274,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 0.6957154581323266,
+      "repeat_seconds": [
+        0.893073458224535,
+        0.6957154581323266,
+        0.6142574581317604
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 132,
+      "status_counts": {
+        "ok": 457,
+        "partial": 23
+      },
+      "feature_valid_fraction": 0.9977272727272727,
+      "array_valid_fraction": null,
+      "write_seconds": 0.019227208103984594,
+      "reasons": {
+        "nonfinite output preserved": 23
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 12.385141582693905,
+      "repeat_seconds": [
+        12.57573129190132,
+        12.385141582693905,
+        12.289939125068486
+      ],
+      "repeat_consistent": true,
+      "samples": 80,
+      "scalar_columns": 4662,
+      "status_counts": {
+        "partial": 480
+      },
+      "feature_valid_fraction": 0.7462569712569712,
+      "array_valid_fraction": null,
+      "write_seconds": 0.15791162522509694,
+      "reasons": {
+        "nonfinite output preserved": 480
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 0.002624292392283678,
+      "repeat_seconds": [
+        0.002624292392283678,
+        0.00278383307158947,
+        0.0024032918736338615
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 7,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0012481249868869781,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 0.002131167333573103,
+      "repeat_seconds": [
+        0.002131167333573103,
+        0.0021914998069405556,
+        0.002073042094707489
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0007893750444054604,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 0.002418666146695614,
+      "repeat_seconds": [
+        0.0023831669241189957,
+        0.002418666146695614,
+        0.0028916657902300358
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 10,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0010294578969478607,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 0.003117999993264675,
+      "repeat_seconds": [
+        0.003117999993264675,
+        0.003203541971743107,
+        0.003075584303587675
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 3,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0009088749065995216,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.001505000051110983,
+      "repeat_seconds": [
+        0.0015345830470323563,
+        0.001495750155299902,
+        0.001505000051110983
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 1,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0009626662358641624,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.0013315831311047077,
+      "repeat_seconds": [
+        0.001313874963670969,
+        0.0014252089895308018,
+        0.0013315831311047077
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 5,
+      "status_counts": {
+        "ok": 1
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.000979292206466198,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 0.013903457671403885,
+      "repeat_seconds": [
+        0.013903457671403885,
+        0.013951332774013281,
+        0.013766707852482796
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 22,
+      "status_counts": {
+        "partial": 1
+      },
+      "feature_valid_fraction": 0.9545454545454546,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0009080832824110985,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 0.031592207960784435,
+      "repeat_seconds": [
+        0.033029249869287014,
+        0.031592207960784435,
+        0.030559000093489885
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 782,
+      "status_counts": {
+        "partial": 1
+      },
+      "feature_valid_fraction": 0.860613810741688,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0037603750824928284,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "summary",
+      "status": "ok",
+      "median_seconds": 0.006406000349670649,
+      "repeat_seconds": [
+        0.006659083068370819,
+        0.006274832878261805,
+        0.006406000349670649
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 28,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0011145826429128647,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "acf",
+      "status": "ok",
+      "median_seconds": 0.0051549579948186874,
+      "repeat_seconds": [
+        0.0051549579948186874,
+        0.005327207967638969,
+        0.00489487498998642
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 40,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0013706251047551632,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "pacf",
+      "status": "ok",
+      "median_seconds": 0.005925124976783991,
+      "repeat_seconds": [
+        0.005925124976783991,
+        0.006163457874208689,
+        0.005647292360663414
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 40,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0011803330853581429,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "adf",
+      "status": "ok",
+      "median_seconds": 0.0068263341672718525,
+      "repeat_seconds": [
+        0.006763666868209839,
+        0.00768166733905673,
+        0.0068263341672718525
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 12,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0010232501663267612,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "permutation_entropy",
+      "status": "ok",
+      "median_seconds": 0.0017885416746139526,
+      "repeat_seconds": [
+        0.0017885416746139526,
+        0.0019568749703466892,
+        0.0017767497338354588
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 4,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": null,
+      "write_seconds": 0.0012007090263068676,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "spectrum",
+      "status": "ok",
+      "median_seconds": 0.0018084170296788216,
+      "repeat_seconds": [
+        0.0018084170296788216,
+        0.0025412500835955143,
+        0.001796540804207325
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 20,
+      "status_counts": {
+        "ok": 4
+      },
+      "feature_valid_fraction": 1.0,
+      "array_valid_fraction": 1.0,
+      "write_seconds": 0.0016582086682319641,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "catch22",
+      "status": "partial",
+      "median_seconds": 0.030208957847207785,
+      "repeat_seconds": [
+        0.03017433313652873,
+        0.030208957847207785,
+        0.030504124704748392
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 88,
+      "status_counts": {
+        "partial": 4
+      },
+      "feature_valid_fraction": 0.9431818181818182,
+      "array_valid_fraction": null,
+      "write_seconds": 0.001186541747301817,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "tsfresh",
+      "status": "partial",
+      "median_seconds": 0.11704262485727668,
+      "repeat_seconds": [
+        0.11213016556575894,
+        0.1183652919717133,
+        0.11704262485727668
+      ],
+      "repeat_consistent": true,
+      "samples": 1,
+      "scalar_columns": 3128,
+      "status_counts": {
+        "partial": 4
+      },
+      "feature_valid_fraction": 0.7838874680306905,
+      "array_valid_fraction": null,
+      "write_seconds": 0.006352332886308432,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    }
+  ],
+  "repetitions": [
+    {
+      "dataset": "GunPoint",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.29063316714018583,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 7,
+      "n_features": 1400,
+      "finite_features": 1400,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.24751508282497525,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 7,
+      "n_features": 1400,
+      "finite_features": 1400,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.262402500025928,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 7,
+      "n_features": 1400,
+      "finite_features": 1400,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.24036775017157197,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 7,
+      "n_features": 1400,
+      "finite_features": 1400,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.2685669590719044,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.19460083357989788,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.19515925040468574,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.1962004592642188,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.22464579110965133,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.22761529125273228,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.22906525013968349,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.22849037498235703,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 10,
+      "n_features": 2000,
+      "finite_features": 2000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.3145226249471307,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 3,
+      "n_features": 600,
+      "finite_features": 600,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.31143399979919195,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 3,
+      "n_features": 600,
+      "finite_features": 600,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.3688537501730025,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 3,
+      "n_features": 600,
+      "finite_features": 600,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.3095668749883771,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 3,
+      "n_features": 600,
+      "finite_features": 600,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.7153285825625062,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 1,
+      "n_features": 200,
+      "finite_features": 200,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.059712333139032125,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 1,
+      "n_features": 200,
+      "finite_features": 200,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.04971908312290907,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 1,
+      "n_features": 200,
+      "finite_features": 200,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.049467625096440315,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 1,
+      "n_features": 200,
+      "finite_features": 200,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.04740575002506375,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 5,
+      "n_features": 1000,
+      "finite_features": 1000,
+      "array_values": 60800,
+      "finite_array_values": 60800,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.04947612527757883,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 5,
+      "n_features": 1000,
+      "finite_features": 1000,
+      "array_values": 60800,
+      "finite_array_values": 60800,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.06888166721910238,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 5,
+      "n_features": 1000,
+      "finite_features": 1000,
+      "array_values": 60800,
+      "finite_array_values": 60800,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.04708262486383319,
+      "status_counts": {
+        "ok": 200
+      },
+      "samples": 200,
+      "scalar_columns": 5,
+      "n_features": 1000,
+      "finite_features": 1000,
+      "array_values": 60800,
+      "finite_array_values": 60800,
+      "reasons": {}
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.407262499909848,
+      "status_counts": {
+        "partial": 145,
+        "ok": 55
+      },
+      "samples": 200,
+      "scalar_columns": 22,
+      "n_features": 4400,
+      "finite_features": 4255,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 145
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.2503264592960477,
+      "status_counts": {
+        "partial": 145,
+        "ok": 55
+      },
+      "samples": 200,
+      "scalar_columns": 22,
+      "n_features": 4400,
+      "finite_features": 4255,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 145
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.22736891685053706,
+      "status_counts": {
+        "partial": 145,
+        "ok": 55
+      },
+      "samples": 200,
+      "scalar_columns": 22,
+      "n_features": 4400,
+      "finite_features": 4255,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 145
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.2306798747740686,
+      "status_counts": {
+        "partial": 145,
+        "ok": 55
+      },
+      "samples": 200,
+      "scalar_columns": 22,
+      "n_features": 4400,
+      "finite_features": 4255,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 145
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 6.04535787506029,
+      "status_counts": {
+        "partial": 200
+      },
+      "samples": 200,
+      "scalar_columns": 777,
+      "n_features": 155400,
+      "finite_features": 136000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 200
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 5.323596958070993,
+      "status_counts": {
+        "partial": 200
+      },
+      "samples": 200,
+      "scalar_columns": 777,
+      "n_features": 155400,
+      "finite_features": 136000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 200
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 5.343215249944478,
+      "status_counts": {
+        "partial": 200
+      },
+      "samples": 200,
+      "scalar_columns": 777,
+      "n_features": 155400,
+      "finite_features": 136000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 200
+      }
+    },
+    {
+      "dataset": "GunPoint",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 5.489872333128005,
+      "status_counts": {
+        "partial": 200
+      },
+      "samples": 200,
+      "scalar_columns": 777,
+      "n_features": 155400,
+      "finite_features": 136000,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 200
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.2788622500374913,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 7,
+      "n_features": 1477,
+      "finite_features": 1477,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.2689763749949634,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 7,
+      "n_features": 1477,
+      "finite_features": 1477,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.2685685409232974,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 7,
+      "n_features": 1477,
+      "finite_features": 1477,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.2918799160979688,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 7,
+      "n_features": 1477,
+      "finite_features": 1477,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.2099185842089355,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.2113567921333015,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.21243774984031916,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.21194345923140645,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.24657745799049735,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.24568125000223517,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.24845154117792845,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.24945458304136992,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 10,
+      "n_features": 2110,
+      "finite_features": 2110,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.4549165000207722,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 3,
+      "n_features": 633,
+      "finite_features": 633,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.4342696671374142,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 3,
+      "n_features": 633,
+      "finite_features": 633,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.43656512489542365,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 3,
+      "n_features": 633,
+      "finite_features": 633,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.43994320929050446,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 3,
+      "n_features": 633,
+      "finite_features": 633,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.06434074975550175,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 1,
+      "n_features": 211,
+      "finite_features": 211,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.08908558310940862,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 1,
+      "n_features": 211,
+      "finite_features": 211,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.0630086250603199,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 1,
+      "n_features": 211,
+      "finite_features": 211,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.06879412522539496,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 1,
+      "n_features": 211,
+      "finite_features": 211,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.059602666180580854,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 5,
+      "n_features": 1055,
+      "finite_features": 1055,
+      "array_values": 106344,
+      "finite_array_values": 106344,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.05718679120764136,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 5,
+      "n_features": 1055,
+      "finite_features": 1055,
+      "array_values": 106344,
+      "finite_array_values": 106344,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.06150587508454919,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 5,
+      "n_features": 1055,
+      "finite_features": 1055,
+      "array_values": 106344,
+      "finite_array_values": 106344,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0576801672577858,
+      "status_counts": {
+        "ok": 211
+      },
+      "samples": 211,
+      "scalar_columns": 5,
+      "n_features": 1055,
+      "finite_features": 1055,
+      "array_values": 106344,
+      "finite_array_values": 106344,
+      "reasons": {}
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.2714208331890404,
+      "status_counts": {
+        "ok": 129,
+        "partial": 82
+      },
+      "samples": 211,
+      "scalar_columns": 22,
+      "n_features": 4642,
+      "finite_features": 4560,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 82
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.2683789166621864,
+      "status_counts": {
+        "ok": 129,
+        "partial": 82
+      },
+      "samples": 211,
+      "scalar_columns": 22,
+      "n_features": 4642,
+      "finite_features": 4560,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 82
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.2661980837583542,
+      "status_counts": {
+        "ok": 129,
+        "partial": 82
+      },
+      "samples": 211,
+      "scalar_columns": 22,
+      "n_features": 4642,
+      "finite_features": 4560,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 82
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.26804920798167586,
+      "status_counts": {
+        "ok": 129,
+        "partial": 82
+      },
+      "samples": 211,
+      "scalar_columns": 22,
+      "n_features": 4642,
+      "finite_features": 4560,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 82
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 6.091567624825984,
+      "status_counts": {
+        "partial": 211
+      },
+      "samples": 211,
+      "scalar_columns": 777,
+      "n_features": 163947,
+      "finite_features": 163736,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 211
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 6.020361667033285,
+      "status_counts": {
+        "partial": 211
+      },
+      "samples": 211,
+      "scalar_columns": 777,
+      "n_features": 163947,
+      "finite_features": 163736,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 211
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 6.0020030830055475,
+      "status_counts": {
+        "partial": 211
+      },
+      "samples": 211,
+      "scalar_columns": 777,
+      "n_features": 163947,
+      "finite_features": 163736,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 211
+      }
+    },
+    {
+      "dataset": "ArrowHead",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 6.062220375053585,
+      "status_counts": {
+        "partial": 211
+      },
+      "samples": 211,
+      "scalar_columns": 777,
+      "n_features": 163947,
+      "finite_features": 163736,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 211
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 1.3408394581638277,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 7,
+      "n_features": 7672,
+      "finite_features": 7672,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 1.325083791743964,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 7,
+      "n_features": 7672,
+      "finite_features": 7672,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 1.3611256247386336,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 7,
+      "n_features": 7672,
+      "finite_features": 7672,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 1.319946083240211,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 7,
+      "n_features": 7672,
+      "finite_features": 7672,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 1.0599568746984005,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 1.0215199999511242,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 1.0427995421923697,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 1.0128670828416944,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 1.2259974158369005,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 1.2010429999791086,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 1.2406384581699967,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 1.2016641669906676,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 10,
+      "n_features": 10960,
+      "finite_features": 10960,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 1.0592517498880625,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 3,
+      "n_features": 3288,
+      "finite_features": 3288,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 1.1326054157689214,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 3,
+      "n_features": 3288,
+      "finite_features": 3288,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 1.0489106248132885,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 3,
+      "n_features": 3288,
+      "finite_features": 3288,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 1.069939916022122,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 3,
+      "n_features": 3288,
+      "finite_features": 3288,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.22291041631251574,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 1,
+      "n_features": 1096,
+      "finite_features": 1096,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.20281429216265678,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 1,
+      "n_features": 1096,
+      "finite_features": 1096,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.20690191676840186,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 1,
+      "n_features": 1096,
+      "finite_features": 1096,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.23297470901161432,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 1,
+      "n_features": 1096,
+      "finite_features": 1096,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.2126275827176869,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 5,
+      "n_features": 5480,
+      "finite_features": 5480,
+      "array_values": 56992,
+      "finite_array_values": 56992,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.24942166591063142,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 5,
+      "n_features": 5480,
+      "finite_features": 5480,
+      "array_values": 56992,
+      "finite_array_values": 56992,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.22163895890116692,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 5,
+      "n_features": 5480,
+      "finite_features": 5480,
+      "array_values": 56992,
+      "finite_array_values": 56992,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.25724587496370077,
+      "status_counts": {
+        "ok": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 5,
+      "n_features": 5480,
+      "finite_features": 5480,
+      "array_values": 56992,
+      "finite_array_values": 56992,
+      "reasons": {}
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 1.1818634578958154,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 22,
+      "n_features": 24112,
+      "finite_features": 21023,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 1.2157250419259071,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 22,
+      "n_features": 24112,
+      "finite_features": 21023,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 1.3153683342970908,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 22,
+      "n_features": 24112,
+      "finite_features": 21023,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 1.2872342499904335,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 22,
+      "n_features": 24112,
+      "finite_features": 21023,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 25.25318566709757,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 777,
+      "n_features": 851592,
+      "finite_features": 447250,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 25.007304084021598,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 777,
+      "n_features": 851592,
+      "finite_features": 447250,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 25.215190290939063,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 777,
+      "n_features": 851592,
+      "finite_features": 447250,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "ItalyPowerDemand",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 26.504643958061934,
+      "status_counts": {
+        "partial": 1096
+      },
+      "samples": 1096,
+      "scalar_columns": 777,
+      "n_features": 851592,
+      "finite_features": 447250,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1096
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.5564899588935077,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 42,
+      "n_features": 3360,
+      "finite_features": 3360,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.5478886249475181,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 42,
+      "n_features": 3360,
+      "finite_features": 3360,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.5522701246663928,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 42,
+      "n_features": 3360,
+      "finite_features": 3360,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.5566999586299062,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 42,
+      "n_features": 3360,
+      "finite_features": 3360,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.4246293753385544,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.44684066623449326,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.44662920804694295,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.5153262908570468,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.5110437921248376,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.4944572080858052,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.598520833067596,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.516243833117187,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 60,
+      "n_features": 4800,
+      "finite_features": 4800,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.723237166646868,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 18,
+      "n_features": 1440,
+      "finite_features": 1440,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.5945801669731736,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 18,
+      "n_features": 1440,
+      "finite_features": 1440,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.589999333024025,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 18,
+      "n_features": 1440,
+      "finite_features": 1440,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.6121071251109242,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 18,
+      "n_features": 1440,
+      "finite_features": 1440,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.07739279186353087,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 6,
+      "n_features": 480,
+      "finite_features": 480,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.07803924987092614,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 6,
+      "n_features": 480,
+      "finite_features": 480,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.08400495769456029,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 6,
+      "n_features": 480,
+      "finite_features": 480,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.07321258401498199,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 6,
+      "n_features": 480,
+      "finite_features": 480,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.06878870772197843,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 30,
+      "n_features": 2400,
+      "finite_features": 2400,
+      "array_values": 97920,
+      "finite_array_values": 97920,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.06824458343908191,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 30,
+      "n_features": 2400,
+      "finite_features": 2400,
+      "array_values": 97920,
+      "finite_array_values": 97920,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.06795179191976786,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 30,
+      "n_features": 2400,
+      "finite_features": 2400,
+      "array_values": 97920,
+      "finite_array_values": 97920,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.09576733317226171,
+      "status_counts": {
+        "ok": 480
+      },
+      "samples": 80,
+      "scalar_columns": 30,
+      "n_features": 2400,
+      "finite_features": 2400,
+      "array_values": 97920,
+      "finite_array_values": 97920,
+      "reasons": {}
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.5911184577271342,
+      "status_counts": {
+        "ok": 457,
+        "partial": 23
+      },
+      "samples": 80,
+      "scalar_columns": 132,
+      "n_features": 10560,
+      "finite_features": 10536,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 23
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.893073458224535,
+      "status_counts": {
+        "ok": 457,
+        "partial": 23
+      },
+      "samples": 80,
+      "scalar_columns": 132,
+      "n_features": 10560,
+      "finite_features": 10536,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 23
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.6957154581323266,
+      "status_counts": {
+        "ok": 457,
+        "partial": 23
+      },
+      "samples": 80,
+      "scalar_columns": 132,
+      "n_features": 10560,
+      "finite_features": 10536,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 23
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.6142574581317604,
+      "status_counts": {
+        "ok": 457,
+        "partial": 23
+      },
+      "samples": 80,
+      "scalar_columns": 132,
+      "n_features": 10560,
+      "finite_features": 10536,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 23
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 12.770512665621936,
+      "status_counts": {
+        "partial": 480
+      },
+      "samples": 80,
+      "scalar_columns": 4662,
+      "n_features": 372960,
+      "finite_features": 278324,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 480
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 12.57573129190132,
+      "status_counts": {
+        "partial": 480
+      },
+      "samples": 80,
+      "scalar_columns": 4662,
+      "n_features": 372960,
+      "finite_features": 278324,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 480
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 12.385141582693905,
+      "status_counts": {
+        "partial": 480
+      },
+      "samples": 80,
+      "scalar_columns": 4662,
+      "n_features": 372960,
+      "finite_features": 278324,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 480
+      }
+    },
+    {
+      "dataset": "BasicMotions",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 12.289939125068486,
+      "status_counts": {
+        "partial": 480
+      },
+      "samples": 80,
+      "scalar_columns": 4662,
+      "n_features": 372960,
+      "finite_features": 278324,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 480
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.002976540941745043,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 7,
+      "n_features": 7,
+      "finite_features": 7,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.002624292392283678,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 7,
+      "n_features": 7,
+      "finite_features": 7,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.00278383307158947,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 7,
+      "n_features": 7,
+      "finite_features": 7,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0024032918736338615,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 7,
+      "n_features": 7,
+      "finite_features": 7,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.0021552080288529396,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.002131167333573103,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.0021914998069405556,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.002073042094707489,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.0026307501830160618,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.0023831669241189957,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.002418666146695614,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0028916657902300358,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 10,
+      "n_features": 10,
+      "finite_features": 10,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.003338499926030636,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 3,
+      "n_features": 3,
+      "finite_features": 3,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.003117999993264675,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 3,
+      "n_features": 3,
+      "finite_features": 3,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.003203541971743107,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 3,
+      "n_features": 3,
+      "finite_features": 3,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.003075584303587675,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 3,
+      "n_features": 3,
+      "finite_features": 3,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.0017627496272325516,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 1,
+      "n_features": 1,
+      "finite_features": 1,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.0015345830470323563,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 1,
+      "n_features": 1,
+      "finite_features": 1,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.001495750155299902,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 1,
+      "n_features": 1,
+      "finite_features": 1,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.001505000051110983,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 1,
+      "n_features": 1,
+      "finite_features": 1,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.0016288752667605877,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 5,
+      "n_features": 5,
+      "finite_features": 5,
+      "array_values": 292,
+      "finite_array_values": 292,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.001313874963670969,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 5,
+      "n_features": 5,
+      "finite_features": 5,
+      "array_values": 292,
+      "finite_array_values": 292,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.0014252089895308018,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 5,
+      "n_features": 5,
+      "finite_features": 5,
+      "array_values": 292,
+      "finite_array_values": 292,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0013315831311047077,
+      "status_counts": {
+        "ok": 1
+      },
+      "samples": 1,
+      "scalar_columns": 5,
+      "n_features": 5,
+      "finite_features": 5,
+      "array_values": 292,
+      "finite_array_values": 292,
+      "reasons": {}
+    },
+    {
+      "dataset": "Airline",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.013922750018537045,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 22,
+      "n_features": 22,
+      "finite_features": 21,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.013903457671403885,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 22,
+      "n_features": 22,
+      "finite_features": 21,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.013951332774013281,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 22,
+      "n_features": 22,
+      "finite_features": 21,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.013766707852482796,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 22,
+      "n_features": 22,
+      "finite_features": 21,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.032327374909073114,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 782,
+      "n_features": 782,
+      "finite_features": 673,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.033029249869287014,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 782,
+      "n_features": 782,
+      "finite_features": 673,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.031592207960784435,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 782,
+      "n_features": 782,
+      "finite_features": 673,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "Airline",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.030559000093489885,
+      "status_counts": {
+        "partial": 1
+      },
+      "samples": 1,
+      "scalar_columns": 782,
+      "n_features": 782,
+      "finite_features": 673,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 1
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "summary",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.006388875190168619,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 28,
+      "n_features": 28,
+      "finite_features": 28,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.006659083068370819,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 28,
+      "n_features": 28,
+      "finite_features": 28,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.006274832878261805,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 28,
+      "n_features": 28,
+      "finite_features": 28,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "summary",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.006406000349670649,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 28,
+      "n_features": 28,
+      "finite_features": 28,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "acf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.005266708321869373,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.0051549579948186874,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.005327207967638969,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "acf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.00489487498998642,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "pacf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.006345333997160196,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.005925124976783991,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.006163457874208689,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "pacf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.005647292360663414,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 40,
+      "n_features": 40,
+      "finite_features": 40,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "adf",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.007339832838624716,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 12,
+      "n_features": 12,
+      "finite_features": 12,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.006763666868209839,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 12,
+      "n_features": 12,
+      "finite_features": 12,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.00768166733905673,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 12,
+      "n_features": 12,
+      "finite_features": 12,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "adf",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0068263341672718525,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 12,
+      "n_features": 12,
+      "finite_features": 12,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "permutation_entropy",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.0019476250745356083,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 4,
+      "n_features": 4,
+      "finite_features": 4,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.0017885416746139526,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 4,
+      "n_features": 4,
+      "finite_features": 4,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.0019568749703466892,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 4,
+      "n_features": 4,
+      "finite_features": 4,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "permutation_entropy",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.0017767497338354588,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 4,
+      "n_features": 4,
+      "finite_features": 4,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "spectrum",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.002188874874264002,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 20,
+      "n_features": 20,
+      "finite_features": 20,
+      "array_values": 928,
+      "finite_array_values": 928,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.0018084170296788216,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 20,
+      "n_features": 20,
+      "finite_features": 20,
+      "array_values": 928,
+      "finite_array_values": 928,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.0025412500835955143,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 20,
+      "n_features": 20,
+      "finite_features": 20,
+      "array_values": 928,
+      "finite_array_values": 928,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "spectrum",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.001796540804207325,
+      "status_counts": {
+        "ok": 4
+      },
+      "samples": 1,
+      "scalar_columns": 20,
+      "n_features": 20,
+      "finite_features": 20,
+      "array_values": 928,
+      "finite_array_values": 928,
+      "reasons": {}
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "catch22",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.03248754097148776,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 88,
+      "n_features": 88,
+      "finite_features": 83,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.03017433313652873,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 88,
+      "n_features": 88,
+      "finite_features": 83,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.030208957847207785,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 88,
+      "n_features": 88,
+      "finite_features": 83,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "catch22",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.030504124704748392,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 88,
+      "n_features": 88,
+      "finite_features": 83,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "tsfresh",
+      "phase": "warmup",
+      "iteration": -1,
+      "seconds": 0.1387809170410037,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 3128,
+      "n_features": 3128,
+      "finite_features": 2452,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 0,
+      "seconds": 0.11213016556575894,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 3128,
+      "n_features": 3128,
+      "finite_features": 2452,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 1,
+      "seconds": 0.1183652919717133,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 3128,
+      "n_features": 3128,
+      "finite_features": 2452,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    },
+    {
+      "dataset": "DailyDelhiClimate",
+      "method": "tsfresh",
+      "phase": "measured",
+      "iteration": 2,
+      "seconds": 0.11704262485727668,
+      "status_counts": {
+        "partial": 4
+      },
+      "samples": 1,
+      "scalar_columns": 3128,
+      "n_features": 3128,
+      "finite_features": 2452,
+      "array_values": 0,
+      "finite_array_values": 0,
+      "reasons": {
+        "nonfinite output preserved": 4
+      }
+    }
+  ]
+}

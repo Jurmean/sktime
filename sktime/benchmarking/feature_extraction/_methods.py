@@ -477,13 +477,23 @@ def run_method(method, frame, p, seed=42):
     if method == "tsfresh":
         from sktime.transformations.panel.tsfresh import TSFreshFeatureExtractor
 
+        class DatedTSFreshFeatureExtractor(TSFreshFeatureExtractor):
+            """Keep timestamps on values after sktime's long-format conversion."""
+
+            def _transform(self, X, y=None):
+                if pd.api.types.is_datetime64_any_dtype(X.iloc[:, 1]):
+                    X = X.copy()
+                    X.index = pd.DatetimeIndex(X.iloc[:, 1])
+                    X.index.name = None
+                return super()._transform(X, y)
+
         # Each sample is one id. Use the repository adapter, no labels/selection.
         cfg = tsfresh_parameters(p["feature_set"])
         signal = frame.iloc[:, 0].rename("signal")
         if isinstance(signal.index, pd.PeriodIndex):
             signal = signal.copy()
             signal.index = signal.index.to_timestamp()
-        out = TSFreshFeatureExtractor(
+        out = DatedTSFreshFeatureExtractor(
             default_fc_parameters=cfg,
             n_jobs=0,
             disable_progressbar=True,

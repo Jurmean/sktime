@@ -5,6 +5,9 @@ PDF pages are physical (1-based); printed slide numbers jump at PDF page 16.
 The feature names below were visually transcribed from PDF image tables.
 """
 
+# Preserve long literal transcriptions and Chinese punctuation in generated prose.
+# ruff: noqa: E501, RUF001
+
 import csv
 import json
 from pathlib import Path
@@ -32,6 +35,7 @@ def add(
     note="",
     category="method",
 ):
+    """Append an audited row with its physical and printed slide references."""
     rows.append(
         dict(
             name=name,

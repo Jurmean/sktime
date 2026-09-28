@@ -181,6 +181,8 @@ def _configuration(preset, methods, parameters, preprocessing):
     if not methods or len(set(methods)) != len(methods):
         raise ValueError("methods must be nonempty and unique")
     parameters = {} if parameters is None else parameters
+    if not isinstance(parameters, dict):
+        raise ValueError("parameters must be a dictionary keyed by method")
     if set(parameters) - set(methods):
         raise ValueError("parameters contains methods not selected for this run")
     params = {m: resolve(m, parameters.get(m)) for m in methods}

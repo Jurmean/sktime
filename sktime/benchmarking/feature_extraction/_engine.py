@@ -316,7 +316,8 @@ def extract_features(
                         raise NotApplicable("preprocessing produced an empty sequence")
                 except Exception as exc:
                     pipeline_error = (
-                        f"preprocessing {step['method']}: {type(exc).__name__}: {exc}"
+                        type(exc),
+                        f"preprocessing {step['method']}: {type(exc).__name__}: {exc}",
                     )
                     break
             if chain and pipeline_error is None:
@@ -359,7 +360,12 @@ def extract_features(
                     captured = []
                     try:
                         if pipeline_error:
-                            raise NotApplicable(pipeline_error)
+                            error_type, error_message = pipeline_error
+                            if issubclass(error_type, ImportError):
+                                raise ImportError(error_message)
+                            if issubclass(error_type, NotApplicable):
+                                raise NotApplicable(error_message)
+                            raise RuntimeError(error_message)
                         if method == "spectrum" and len(part) > 2:
                             index = part.index
                             numeric_index = (

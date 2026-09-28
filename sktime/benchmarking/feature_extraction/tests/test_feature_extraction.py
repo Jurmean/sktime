@@ -339,3 +339,19 @@ def test_benchmark_protocol_and_label_independence(tmp_path):
     )
     pd.testing.assert_frame_equal(a.features, b.features)
     assert a.metadata["input_sha256"] != b.metadata["input_sha256"]
+
+
+def test_missing_preprocessing_dependency_is_blocked(monkeypatch):
+    from sktime.benchmarking.feature_extraction import _engine
+
+    def unavailable(*args):
+        raise ModuleNotFoundError("optional preprocessing dependency")
+
+    monkeypatch.setattr(_engine, "preprocess", unavailable)
+    r = extract_features(
+        pd.Series(np.arange(12.0)),
+        methods=["summary", "spectrum"],
+        preprocessing=[{"method": "difference1"}],
+    )
+    assert r.diagnostics.status.tolist() == ["blocked", "blocked"]
+    assert r.diagnostics.reason.str.contains("preprocessing difference1").all()

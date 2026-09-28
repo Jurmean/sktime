@@ -541,8 +541,52 @@ for name, alias in catch:
         "catch22 feature",
     )
 
+native_methods = {
+    "summary",
+    "acf",
+    "pacf",
+    "adf",
+    "catch22",
+    "tsfresh",
+    "dfm",
+    "stl",
+    "minmax",
+    "zscore",
+    "padding",
+    "difference1",
+    "difference2",
+    "fit_linear",
+    "fit_power",
+    "fit_exponential",
+    "fit_polynomial",
+    "fit_sigmoid",
+}
+for row in rows:
+    method = row["method"]
+    row["execution"] = (
+        "sktime interface adapter"
+        if method in native_methods
+        else "explicit pandas/numpy adapter"
+        if method
+        in {"resample", "pool_mean", "pool_max", "patch", "bfill", "drop_missing"}
+        else "notebook/backend adapter"
+        if method in DEFAULTS
+        else "orchestration"
+        if method in {"window_length", "all univariate methods"}
+        else "not executed"
+    )
+    row["implementation"] = (
+        "sktime/benchmarking/feature_extraction/_methods.py"
+        if method in DEFAULTS
+        else "sktime/benchmarking/feature_extraction/_data.py"
+        if method == "window_length"
+        else "sktime/benchmarking/feature_extraction/_engine.py"
+        if method == "all univariate methods"
+        else ""
+    )
+
 with (OUT / "algorithm_inventory.csv").open("w", encoding="utf-8", newline="") as f:
-    w = csv.DictWriter(f, fieldnames=list(rows[0]))
+    w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
     w.writeheader()
     w.writerows(rows)
 (OUT / "methods.json").write_text(
@@ -554,6 +598,7 @@ lines = [
     "来源：lec2-2026.pdf，共 132 页。PDF 页码为物理页码；第 16 页起页脚编号比 PDF 页码大 1。",
     "图片特征表已逐项核对。概念、预告、评价指标、装饰器不计为可执行特征。",
     "状态针对本次锁定依赖；TSFresh 的 efficient 与 comprehensive 参数组合不同。",
+    "来源链接提供课件/仓库中的对应参考。实际调用路径及接口复用方式见 CSV 的 implementation、execution 列；自定义适配器不宣称直接执行了参考类。",
     "",
     "| 方法/特征 | PDF / 页脚 | 类别 | 接口 ID | 支持状态 | 来源/说明 |",
     "|---|---|---|---|---|---|",
@@ -580,6 +625,7 @@ lines += [
     "- 经典分解保留边界 NaN；ADF 的 p 值只表达单位根检验，不把未拒绝原假设当作证明。",
     "- 简单均值/标准差/分位数使用 SummaryTransformer；原始标准差 ddof=1。",
     "- 预处理、切片、Pooling 只执行显式配置；不暗中补齐缺失/不等长样本。",
+    "- 重采样、Pooling、Patching、bfill/drop_missing 使用显式 pandas/numpy 适配器，以保留完整窗口、样本边界及未解决的缺失值；相关原生类作为对照参考。",
 ]
 (OUT / "ALGORITHMS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 print(

@@ -97,6 +97,8 @@ result = extract_features(X, methods=["summary", "spectrum"], preprocessing=[
 
 记录提交、方法源文件 SHA256、全部依赖版本、Python、平台、CPU 架构、原始数据内容/索引/标签元数据的 SHA256。数值重复一致性以 rtol=1e-7、atol=1e-9 检查，包括特征表、数组与状态；不同硬件耗时不可直接当作算法排名。
 
+命令行在加载数值库之前将 OMP、OpenBLAS、MKL、NumExpr 和 macOS Accelerate 的线程环境变量设为 1，并记录实际环境。Python 接口使用 `threadpoolctl`；若通过 Python 在 macOS Accelerate 环境运行正式基准，应在启动解释器前设置 `VECLIB_MAXIMUM_THREADS=1`，因为该后端不支持运行时线程控制。
+
 ```bash
 python -m pytest -o addopts='' sktime/benchmarking/feature_extraction/tests -q
 python lectures/lec2/feature_benchmark/generate_inventory.py

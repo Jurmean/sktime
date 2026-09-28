@@ -109,6 +109,16 @@ def provenance():
         "architecture": platform.machine(),
         "processor": platform.processor(),
         "logical_cpus": os.cpu_count(),
+        "thread_environment": {
+            key: os.environ.get(key)
+            for key in (
+                "OMP_NUM_THREADS",
+                "OPENBLAS_NUM_THREADS",
+                "MKL_NUM_THREADS",
+                "NUMEXPR_NUM_THREADS",
+                "VECLIB_MAXIMUM_THREADS",
+            )
+        },
         "versions": versions,
     }
 
@@ -596,6 +606,19 @@ def run_benchmark(
                     "iteration": iteration,
                     "seconds": elapsed,
                     "status_counts": counts,
+                    "samples": len(result.features),
+                    "scalar_columns": result.features.shape[1],
+                    "n_features": int(result.diagnostics.n_features.sum()),
+                    "finite_features": int(result.diagnostics.finite_features.sum()),
+                    "array_values": int(result.diagnostics.array_values.sum()),
+                    "finite_array_values": int(
+                        result.diagnostics.finite_array_values.sum()
+                    ),
+                    "reasons": result.diagnostics.loc[
+                        result.diagnostics.reason != "", "reason"
+                    ]
+                    .value_counts()
+                    .to_dict(),
                 }
                 manifest["repetitions"].append(receipt)
                 if iteration < 0:

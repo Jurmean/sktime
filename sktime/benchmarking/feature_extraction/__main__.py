@@ -2,21 +2,31 @@
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
-
-from sktime.benchmarking.feature_extraction._data import DATASETS, load_dataset
-from sktime.benchmarking.feature_extraction._engine import (
-    extract_features,
-    json_safe,
-    run_benchmark,
-    write_json,
-)
-from sktime.benchmarking.feature_extraction._methods import PRESETS, list_methods
 
 
 def main(argv=None):
     """Run list, extract or benchmark; errors never masquerade as success."""
+    # Accelerate is not controlled by threadpoolctl; set these before NumPy import.
+    for variable in (
+        "OMP_NUM_THREADS",
+        "OPENBLAS_NUM_THREADS",
+        "MKL_NUM_THREADS",
+        "NUMEXPR_NUM_THREADS",
+        "VECLIB_MAXIMUM_THREADS",
+    ):
+        os.environ[variable] = "1"
+    from sktime.benchmarking.feature_extraction._data import DATASETS, load_dataset
+    from sktime.benchmarking.feature_extraction._engine import (
+        extract_features,
+        json_safe,
+        run_benchmark,
+        write_json,
+    )
+    from sktime.benchmarking.feature_extraction._methods import PRESETS, list_methods
+
     parser = argparse.ArgumentParser(
         description="Lecture 2 feature extraction and reproducible runtime benchmark"
     )
